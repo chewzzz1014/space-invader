@@ -1,12 +1,13 @@
 import pygame
 
 class Ship():
-    def __init__(self):
+    def __init__(self, screen):
         self.screen = screen
 
         # load image and get its rect
         self.image = pygame.image.load("images/space-invaders.png")
-        self.screen_rect = self.image.get_rect()
+        self.rect = self.image.get_rect()
+        self.screen_rect = screen.get_rect()
 
         # the starting position of the ship: center bottom of the surface
         # every game element in pygame is treated as rect (rectangular)

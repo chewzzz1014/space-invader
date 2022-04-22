@@ -1,6 +1,7 @@
 import pygame
 import sys
 from setting import Settings
+from ship import Ship
 
 def run_game():
     # initialization
@@ -12,6 +13,9 @@ def run_game():
 
     # create window screen (surface). Width is 1200 and height is 800
     screen = pygame.display.set_mode((game_settings.screen_width, game_settings.screen_height))
+
+    # make a ship
+    ship = Ship(screen)
 
     # set caption of the window
     pygame.display.set_caption("Alien Invasion")
@@ -25,6 +29,9 @@ def run_game():
 
         # fill the screen with background color
         screen.fill(game_settings.bg_color)
+
+        # draw the ship to screen
+        ship.blitme()
 
         # update the screen
         pygame.display.flip()
