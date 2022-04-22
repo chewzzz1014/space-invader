@@ -1,7 +1,7 @@
 import pygame
-import sys
 from setting import Settings
 from ship import Ship
+import game_functions as gf
 
 def run_game():
     # initialization
@@ -21,11 +21,8 @@ def run_game():
     pygame.display.set_caption("Alien Invasion")
 
     while True:
-        # did user close the window?
-        # monitor user's event using event loop
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
+        # use method from game_functions.py
+        gf.check_events()
 
         # fill the screen with background color
         screen.fill(game_settings.bg_color)
