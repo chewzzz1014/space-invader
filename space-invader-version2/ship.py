@@ -8,7 +8,8 @@ class Ship():
         self.image = pygame.image.load("images/space-invaders.png")
         self.screen_rect = self.image.get_rect()
 
-        # the starting position of the ship
+        # the starting position of the ship: center bottom of the surface
+        # every game element in pygame is treated as rect (rectangular)
         self.rect.centerx = self.screen_rect.centerx
         self.rect.bottom = self.screen_rect.bottom
 
