@@ -22,15 +22,11 @@ def run_game():
 
     while True:
         # use method from game_functions.py
-        gf.check_events()
+        # check what had user inputted
+        gf.check_events(ship)
 
-        # fill the screen with background color
-        screen.fill(game_settings.bg_color)
-
-        # draw the ship to screen
-        ship.blitme()
-
-        # update the screen
-        pygame.display.flip()
+        ship.update()
+        # update screen
+        gf.update_screen(game_settings, screen, ship)
 
 run_game()
