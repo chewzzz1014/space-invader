@@ -15,7 +15,7 @@ def run_game():
     screen = pygame.display.set_mode((game_settings.screen_width, game_settings.screen_height))
 
     # make a ship
-    ship = Ship(screen)
+    ship = Ship(game_settings, screen)
 
     # set caption of the window
     pygame.display.set_caption("Alien Invasion")

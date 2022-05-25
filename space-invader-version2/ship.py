@@ -1,8 +1,10 @@
 import pygame
+from setting import Settings
 
 class Ship():
     def __init__(self, screen):
         self.screen = screen
+        self.ai_settings = Settings()
 
         # load image and get its rect
         self.image = pygame.image.load("images/space-invaders.png")
@@ -14,6 +16,9 @@ class Ship():
         self.rect.centerx = self.screen_rect.centerx
         self.rect.bottom = self.screen_rect.bottom
 
+        # store a decimal value for the ship's center
+        self.center = float(self.rect.centerx)
+
         self.moving_right = False
         self.moving_left = False
 
@@ -22,7 +27,9 @@ class Ship():
         self.screen.blit(self.image, self.rect)
 
     def update(self):
+
+        # update the ship's center value
         if self.moving_right:
-            self.rect.centerx += 1
+            self.center += self.ai_settings.ship_speed_factor
         if self.moving_left:
-            self.rect.centerx -= 1
+            self.center -= self.ai_settings.ship_speed_factor
