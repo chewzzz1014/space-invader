@@ -2,7 +2,7 @@ import pygame
 from setting import Settings
 
 class Ship():
-    def __init__(self, screen):
+    def __init__(self,ai_settings, screen):
         self.screen = screen
         self.ai_settings = Settings()
 
@@ -29,7 +29,10 @@ class Ship():
     def update(self):
 
         # update the ship's center value
-        if self.moving_right:
+        # make sure that the ship wiil not go beyond the edge
+        if self.moving_right and self.rect.right < self.screen_rect.right:
             self.center += self.ai_settings.ship_speed_factor
-        if self.moving_left:
+        if self.moving_left and self.rect.left > 0:
             self.center -= self.ai_settings.ship_speed_factor
+
+        self.rect.centerx = self.center

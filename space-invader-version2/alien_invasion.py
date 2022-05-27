@@ -2,6 +2,7 @@ import pygame
 from setting import Settings
 from ship import Ship
 import game_functions as gf
+from pygame.sprite import Group
 
 def run_game():
     # initialization
@@ -17,16 +18,21 @@ def run_game():
     # make a ship
     ship = Ship(game_settings, screen)
 
+    bullets = Group()
+
     # set caption of the window
     pygame.display.set_caption("Alien Invasion")
 
     while True:
         # use method from game_functions.py
         # check what had user inputted
-        gf.check_events(ship)
-
+        gf.check_events(game_settings, screen, ship, bullets)
         ship.update()
+
+        # update bullets
+        gf.update_bullets(bullets)
+
         # update screen
-        gf.update_screen(game_settings, screen, ship)
+        gf.update_screen(game_settings, screen, ship, bullets)
 
 run_game()
