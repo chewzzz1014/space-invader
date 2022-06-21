@@ -6,6 +6,9 @@ class GameStats():
         self.ai_settings = ai_settings
         self.reset_stats()
 
+        # starts game in inactive state
+        self.game_active = False
+
         # starts the game in active state
         self.game_active = True
 

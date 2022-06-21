@@ -5,6 +5,7 @@ import game_functions as gf
 from pygame.sprite import Group
 from alien import Alien
 from game_stats import GameStats
+from button import Button
 
 def run_game():
     # initialization
@@ -24,6 +25,9 @@ def run_game():
     bullets = Group()
     aliens = Group()
 
+    # make the Pay buttin
+    play_button = Button(game_settings, screen, "Play")
+
     # set caption of the window
     pygame.display.set_caption("Alien Invasion")
 
@@ -36,7 +40,7 @@ def run_game():
     while True:
         # use method from game_functions.py
         # check what had user inputted
-        gf.check_events(game_settings, screen, ship, bullets)
+        gf.check_events(game_settings, screen, stats, play_button, ship, bullets)
 
         if stats.game_active:
             ship.update()
@@ -48,6 +52,6 @@ def run_game():
             gf.update_aliens(game_settings, stats, screen, ship, aliens, bullets)
 
         # update screen
-        gf.update_screen(game_settings, screen, ship, aliens, bullets)
+        gf.update_screen(game_settings, screen, stats, ship, aliens, bullets,play_button)
 
 run_game()
