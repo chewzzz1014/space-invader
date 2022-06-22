@@ -15,3 +15,4 @@ class GameStats():
     def reset_stats(self):
         # initialize changeable statistics
         self.ships_left = self.ai_settings.ship_limit
+        self.score = 0
