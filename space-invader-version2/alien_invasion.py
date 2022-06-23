@@ -44,7 +44,7 @@ def run_game():
     while True:
         # use method from game_functions.py
         # check what had user inputted
-        gf.check_events(game_settings, screen, stats, play_button, ship, aliens, bullets)
+        gf.check_events(game_settings, screen, stats, sb, play_button, ship, aliens, bullets)
 
         if stats.game_active:
             ship.update()
@@ -53,7 +53,7 @@ def run_game():
             gf.update_bullets(game_settings, screen, stats, sb, ship, aliens, bullets)
 
             # update aliens
-            gf.update_aliens(game_settings, stats, screen, ship, aliens, bullets)
+            gf.update_aliens(game_settings, screen, stats, sb, ship, aliens, bullets)
 
         # update screen
         gf.update_screen(game_settings, screen, stats, sb, ship, aliens, bullets,play_button)
